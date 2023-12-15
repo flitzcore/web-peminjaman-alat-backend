@@ -3,7 +3,7 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const { toJSON, paginate } = require('./plugins');
 const { roles } = require('../config/roles');
-
+const inventorySchema = require('./inventory.schema');
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -44,6 +44,7 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    inventory: [inventorySchema],
   },
   {
     timestamps: true,
